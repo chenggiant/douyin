@@ -1,0 +1,2 @@
+find *.mp4 | sed 's:\ :\\\ :g'| sed -e "s/'/'\\\\''/g;s/\(.*\)/'\1'/" | sed 's/^/file /' > fl.txt; ffmpeg -f concat -safe 0 -i fl.txt -c:v h264 -c:a aac output.mp4; rm fl.txt
+
